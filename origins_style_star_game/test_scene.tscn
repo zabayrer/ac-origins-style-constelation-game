@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cspqd4vnie70d"]
+
+[ext_resource type="Texture2D" uid="uid://dkkycy24bppbb" path="res://ec67a09f43c3ba28c296a45b97f0418a.jpg" id="1_u3y16"]
+[ext_resource type="Script" path="res://background.gd" id="2_uq07e"]
+[ext_resource type="Texture2D" uid="uid://bdoaweeb5ppxa" path="res://big_dipper.png" id="3_rduic"]
+[ext_resource type="Script" path="res://to_match.gd" id="4_ayp4i"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(1003, 164)
+scale = Vector2(2.79703, 2.79703)
+texture = ExtResource("1_u3y16")
+script = ExtResource("2_uq07e")
+
+[node name="to_match" type="Sprite2D" parent="."]
+position = Vector2(616, 350)
+rotation = 3.94968
+texture = ExtResource("3_rduic")
+script = ExtResource("4_ayp4i")
