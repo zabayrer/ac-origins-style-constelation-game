@@ -1,10 +1,12 @@
 extends Sprite2D
 
+var current_constellation = "big_dipper"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rotation = randi_range(0, 360)
-
+	
+	#i guess use an array of all the constellations and pick randomly from them
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,6 +31,11 @@ func _process(delta):
 	#normalize the velocity
 	velocity = velocity.normalized()
 
-	#move screen
+	#move constellation
 	position += velocity * delta * 100
 
+
+
+func _on_big_dipper_area_area_entered(area):
+	if current_constellation == "big_dipper" and rotation < 240 and rotation > 200:
+		print("win!")

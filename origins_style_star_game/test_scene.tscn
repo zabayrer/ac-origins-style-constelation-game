@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cspqd4vnie70d"]
+[gd_scene load_steps=6 format=3 uid="uid://cspqd4vnie70d"]
 
 [ext_resource type="Texture2D" uid="uid://dkkycy24bppbb" path="res://ec67a09f43c3ba28c296a45b97f0418a.jpg" id="1_u3y16"]
 [ext_resource type="Texture2D" uid="uid://bdoaweeb5ppxa" path="res://big_dipper.png" id="3_rduic"]
 [ext_resource type="Script" path="res://to_match.gd" id="4_ayp4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwbbf"]
+size = Vector2(384.008, 150.035)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7nc5p"]
 size = Vector2(135, 369)
@@ -26,9 +29,19 @@ position = Vector2(3.19159e-12, 1.22608e-13)
 rotation = 2.39459
 scale = Vector2(1.08494, 1.08494)
 
+[node name="Area2D" type="Area2D" parent="to_match"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="to_match/Area2D"]
+position = Vector2(-15.2143, -3.65541)
+rotation = 0.446804
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vwbbf")
+
 [node name="big_dipper_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="big_dipper_area"]
 position = Vector2(1215, 325)
 rotation = -0.359538
 shape = SubResource("RectangleShape2D_7nc5p")
+
+[connection signal="area_entered" from="big_dipper_area" to="to_match" method="_on_big_dipper_area_area_entered"]
